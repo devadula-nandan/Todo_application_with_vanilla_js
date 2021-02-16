@@ -1,0 +1,96 @@
+body{
+    width: auto;
+    height: 100%;
+    background-color: blueviolet;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+*{
+    border: 0px;
+    box-sizing: border-box;
+    transition: all 0.2s ease-out;
+}
+.con0{
+    text-align: center;
+}
+.con1{
+    background-color: rgba(255, 255, 255, 0.384);
+    width: 70%;
+    margin: auto;
+    padding: 40px 8px;
+    border-radius: 6px;
+    box-shadow: 0px 0px 5px 0px rgb(0, 0, 0);
+}
+.box{
+    display: inline-flex;
+    margin: 30px 0px 26px 0px;
+}
+.box input{
+    height: 34px;
+    padding: 0px 12px;
+    border-radius: 2px 0px 0px 2px;
+}
+.box button{
+    height: 34px;
+    padding: 8px;
+    padding: 0px 12px;
+    border-radius: 0px 2px 2px 0px;
+}
+input:focus,button:focus{
+    outline: none;
+}
+
+ul{
+    list-style: none;
+    padding: 0px;
+    width: 80%;
+    margin: auto;
+    text-align: left;
+}
+.item{
+    background-color: rgba(0, 0, 0, 0.486);
+    margin: 10px;
+    border-radius: 4px;
+    display: flex;
+}
+.item p{
+    flex: 1;
+    margin: 0px;
+    padding: 8px;
+    font-size: 20px;
+    overflow: auto;
+}
+.fade{
+    opacity: 0;
+    transition: all 0.2s ease-out;
+}
+i{
+    pointer-events: none;
+}
+.delete,.checked{
+    width: 10%;
+}
+.delete{
+    border-radius: 4px 0px 0px 4px;
+    background-color: rgb(255, 64, 38);
+    color: white;
+}
+.delete:hover{
+    background-color: #ffffff;
+    color:  rgb(255, 64, 38);
+    width: 20%;
+}
+.checked:hover{
+    background-color: #ffffff;
+    color:  rgb(18, 255, 57);
+    width: 20%;
+}
+.checked{
+    border-radius: 0px 4px 4px 0px ;
+    background-color: rgb(18, 255, 57);
+    color: white;
+}
+.completed{
+    text-decoration: line-through;
+    opacity: 0.5;
+}

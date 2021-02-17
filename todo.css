@@ -1,8 +1,8 @@
 body{
     width: auto;
     height: 100%;
-    background-color: blueviolet;
-    color: white;
+    background-color: blueviolet !important;
+    color: white !important;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 *{
@@ -12,11 +12,12 @@ body{
 }
 .con0{
     text-align: center;
+    
 }
 .con1{
     background-color: rgba(255, 255, 255, 0.384);
-    width: 70%;
-    margin: auto;
+    
+    
     padding: 40px 8px;
     border-radius: 6px;
     box-shadow: 0px 0px 5px 0px rgb(0, 0, 0);
@@ -42,8 +43,7 @@ input:focus,button:focus{
 
 ul{
     list-style: none;
-    padding: 0px;
-    width: 80%;
+    padding: 0px !important;
     margin: auto;
     text-align: left;
 }
@@ -52,6 +52,7 @@ ul{
     margin: 10px;
     border-radius: 4px;
     display: flex;
+    padding: 0px !important;
 }
 .item p{
     flex: 1;
@@ -68,7 +69,7 @@ i{
     pointer-events: none;
 }
 .delete,.checked{
-    width: 10%;
+    width: 14%;
 }
 .delete{
     border-radius: 4px 0px 0px 4px;
@@ -93,4 +94,9 @@ i{
 .completed{
     text-decoration: line-through;
     opacity: 0.5;
+}
+@media (min-width: 768px) {
+    .delete,.checked{
+        width: 7%;
+    }
 }

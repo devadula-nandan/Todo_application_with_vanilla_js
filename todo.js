@@ -1,14 +1,15 @@
 //selectors
 const textInput = document.querySelector(".textinput");
 const addButton = document.querySelector(".addbutton");
-const filterOption = document.querySelector(".filter-todo")
-
+const filterOption = document.querySelector(".filter-todo");
+const colorPicker = document.querySelector(".cp");
 
 const todoListUl = document.querySelector(".todolist");
 
 //eventListeners
 addButton.addEventListener("click", addItem);
 filterOption.addEventListener("click", filterTodo);
+colorPicker.addEventListener("click", pickColor);
 
 //functions
 
@@ -77,6 +78,11 @@ function filterTodo(e) {
                 break;
         }
     })
+}
+function pickColor() {
+    const boDy = document.querySelector(".body");
+    console.log(boDy);
+    boDy.style.backgroundColor = colorPicker.value;
 }
 
 

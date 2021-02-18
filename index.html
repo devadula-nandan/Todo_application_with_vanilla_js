@@ -17,12 +17,18 @@
         <h1>TO DO LIST</h1>
         <section class="con1">
             <form class="box">
-                <input class="textinput" type="text" value="" placeholder="add todo">
-                <button class="addbutton" type="submit">ADD</button>
+                <div class="inadd"><input class="textinput" type="text" value="" placeholder="add todo">
+                    <button class="addbutton" type="submit">ADD</button>
+                </div>
+                <div class="filter">
+                    <select name="todos" class="filter-todo">
+                        <option value="all">All</option>
+                        <option value="completed">Completed</option>
+                        <option value="uncompleted">Uncompleted</option>
+                    </select>
+                </div>
             </form>
-            <ul class="todolist">
-
-            </ul>
+            <ul class="todolist"></ul>
         </section>
 
     </div>

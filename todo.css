@@ -22,16 +22,16 @@ body{
     border-radius: 6px;
     box-shadow: 0px 0px 5px 0px rgb(0, 0, 0);
 }
-.box{
+.inadd{
     display: inline-flex;
-    margin: 30px 0px 26px 0px;
+    margin: 0px 4px 0px 4px;
 }
-.box input{
+.inadd input{
     height: 34px;
     padding: 0px 12px;
     border-radius: 2px 0px 0px 2px;
 }
-.box button{
+.inadd button{
     height: 34px;
     padding: 8px;
     padding: 0px 12px;
@@ -95,8 +95,30 @@ i{
     text-decoration: line-through;
     opacity: 0.5;
 }
+select{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+    color: rgb(63, 63, 63);
+    padding: 5px;
+}
+.filter{
+    display: inline-block;
+    margin: 0px 4px 0px 4px;
+}
+.box{
+    display: inline-flex;
+}
 @media (min-width: 768px) {
     .delete,.checked{
         width: 7%;
+    }
+}
+@media (max-width: 425px) {
+    .box{
+        display: inline-grid;
+    }
+    .filter{
+        margin-top: 7px;
     }
 }

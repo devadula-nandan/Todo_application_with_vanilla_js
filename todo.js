@@ -16,29 +16,32 @@ colorPicker.addEventListener("change", pickColor);
 function addItem(event) {
     event.preventDefault();
 
-    const newItemLi = document.createElement("li");
-    newItemLi.classList.add("item");
+    if (textInput.value != "") {
 
-    const newItemLiP = document.createElement("p")
-    newItemLiP.innerText = textInput.value;
+        const newItemLi = document.createElement("li");
+        newItemLi.classList.add("item");
 
-    const newButtonDel = document.createElement("button");
-    newButtonDel.classList.add("delete");
-    newButtonDel.innerHTML = (`<i class="fa fa-trash" aria-hidden="true"></i>`);
+        const newItemLiP = document.createElement("p")
+        newItemLiP.innerText = textInput.value;
 
-    const newButtonChecked = document.createElement("button");
-    newButtonChecked.classList.add("checked");
-    newButtonChecked.innerHTML = (`<i class="fa fa-check" aria-hidden="true"></i>`);
+        const newButtonDel = document.createElement("button");
+        newButtonDel.classList.add("delete");
+        newButtonDel.innerHTML = (`<i class="fa fa-trash" aria-hidden="true"></i>`);
 
-    newItemLi.appendChild(newItemLiP);
-    newItemLi.appendChild(newButtonDel);
-    newItemLi.appendChild(newButtonChecked);
+        const newButtonChecked = document.createElement("button");
+        newButtonChecked.classList.add("checked");
+        newButtonChecked.innerHTML = (`<i class="fa fa-check" aria-hidden="true"></i>`);
 
-    todoListUl.appendChild(newItemLi);
+        newItemLi.appendChild(newItemLiP);
+        newItemLi.appendChild(newButtonDel);
+        newItemLi.appendChild(newButtonChecked);
 
-    textInput.value = "";
+        todoListUl.appendChild(newItemLi);
 
-    newItemLi.addEventListener("click", deletecheck);
+        textInput.value = "";
+
+        newItemLi.addEventListener("click", deletecheck);
+    }
 }
 function deletecheck(e) {
     const clickedTarget = e.target;

@@ -15,15 +15,15 @@
 }
 .con0 h1{
     display: inline-block;
-    background-color: rgba(126, 126, 126, 0.384);
+    background-color: rgba(133, 133, 133, 0.2);
     margin: 0px;
     padding: 4px 20px;
     margin-top: 20px;
     border-radius: 6px 6px 0px 0px;
 }
 .con1{
-    background-color: rgba(0, 0, 0, 0.384);
-    
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(133, 133, 133, 0.2);
     margin-bottom: 20px;
     padding: 40px 8px;
     border-radius: 6px;

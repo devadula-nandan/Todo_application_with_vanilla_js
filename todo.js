@@ -8,8 +8,8 @@ const todoListUl = document.querySelector(".todolist");
 
 //eventListeners
 addButton.addEventListener("click", addItem);
-filterOption.addEventListener("click", filterTodo);
-colorPicker.addEventListener("click", pickColor);
+filterOption.addEventListener("change", filterTodo);
+colorPicker.addEventListener("change", pickColor);
 
 //functions
 

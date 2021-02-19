@@ -1,8 +1,8 @@
 .body{
     width: auto;
     height: 100%;
-    background-color: blueviolet;
-    color: white !important;
+    background-color: black;
+    color: rgb(156, 156, 156) !important;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 *{
@@ -11,16 +11,23 @@
     transition: all 0.2s ease-out;
 }
 .con0{
-    text-align: center;
-    
+    text-align: center; 
+}
+.con0 h1{
+    display: inline-block;
+    background-color: rgba(126, 126, 126, 0.384);
+    margin: 0px;
+    padding: 4px 20px;
+    margin-top: 20px;
+    border-radius: 6px 6px 0px 0px;
 }
 .con1{
-    background-color: rgba(255, 255, 255, 0.384);
+    background-color: rgba(126, 126, 126, 0.384);
     
-    
+    margin-bottom: 20px;
     padding: 40px 8px;
     border-radius: 6px;
-    box-shadow: 0px 0px 5px 0px rgb(0, 0, 0);
+    /* box-shadow: 0px 0px 5px 0px rgba(131, 131, 131, 0.568); */
 }
 .inadd{
     display: inline-flex;
@@ -30,6 +37,7 @@
     height: 34px;
     padding: 0px 12px;
     border-radius: 2px 0px 0px 2px;
+    background-color: #f3f3f3;
 }
 .inadd button{
     height: 34px;
@@ -60,6 +68,7 @@ ul{
     padding: 8px;
     font-size: 20px;
     overflow: auto;
+    color: white;
 }
 .fade{
     opacity: 0;
@@ -106,19 +115,30 @@ select{
     display: inline-block;
     margin: 0px 4px 0px 4px;
 }
+.filter-todo{
+    background-color: #f3f3f3;
+}
 .box{
     display: inline-flex;
+}
+.cp{
+   height: auto;
+   
+}
+.filthe{
+    display: inline-flex;
+    margin-top: 7px;
 }
 @media (min-width: 768px) {
     .delete,.checked{
         width: 7%;
     }
+    .delete:hover,.checked:hover{
+        width: 14%;
+    }
 }
 @media (max-width: 425px) {
     .box{
-        display: inline-grid;
-    }
-    .filter{
-        margin-top: 7px;
+        display: block;
     }
 }

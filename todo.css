@@ -114,6 +114,7 @@ select{
 .filter{
     display: inline-block;
     margin: 0px 4px 0px 4px;
+    border-radius: 2px;
 }
 .filter-todo{
     background-color: #f3f3f3;
@@ -123,7 +124,7 @@ select{
 }
 .cp{
    height: auto;
-   
+   border-radius: 2px;
 }
 .filthe{
     display: inline-flex;

@@ -7,9 +7,10 @@ const colorPicker = document.querySelector(".cp");
 const todoListUl = document.querySelector(".todolist");
 
 //eventListeners
-addButton.addEventListener("click", addItem);
-filterOption.addEventListener("change", filterTodo);
-colorPicker.addEventListener("change", pickColor);
+addButton.addEventListener("click", addItem);//eventListener
+filterOption.addEventListener("change", filterTodo);//eventListener
+colorPicker.addEventListener("change", pickColor);//eventListener
+document.addEventListener("DOMContentLoaded", getTodos);//eventListener
 
 //functions
 
@@ -33,6 +34,7 @@ function addItem(event) {
         newButtonChecked.innerHTML = (`<i class="fa fa-check" aria-hidden="true"></i>`);
 
         newItemLi.appendChild(newItemLiP);
+        saveLocalTodos(newItemLiP.innerText);
         newItemLi.appendChild(newButtonDel);
         newItemLi.appendChild(newButtonChecked);
 
@@ -40,7 +42,7 @@ function addItem(event) {
 
         textInput.value = "";
 
-        newItemLi.addEventListener("click", deletecheck);
+        newItemLi.addEventListener("click", deletecheck);//eventListener
     }
 }
 function deletecheck(e) {
@@ -48,8 +50,9 @@ function deletecheck(e) {
     if (clickedTarget.classList[0] === "delete") {
         const clickedTargetParent = clickedTarget.parentElement;
         clickedTargetParent.classList.add("fade");
+        removeLocalTodos(clickedTargetParent);
         clickedTargetParent.addEventListener("transitionend", function () {
-            clickedTargetParent.remove();
+            clickedTargetParent.remove();//eventListener
         })
     }
     if (clickedTarget.classList[0] === "checked") {
@@ -82,6 +85,7 @@ function filterTodo(e) {
         }
     })
 }
+
 function pickColor() {
     const boDy = document.querySelector(".body");
     console.log(boDy);
@@ -89,23 +93,60 @@ function pickColor() {
 }
 
 
+function saveLocalTodos(todo) {
+    let all;
+    if (localStorage.getItem("all") === null) {
+        all = [];
+    } else {
+        all = JSON.parse(localStorage.getItem("all"));
+    }
+    all.push(todo);
+    localStorage.setItem("all", JSON.stringify(all));
+}
+function getTodos() {
+    let all;
+    if (localStorage.getItem("all") === null) {
+        all = [];
+    } else {
+        all = JSON.parse(localStorage.getItem("all"));
+    }
+    all.forEach(function (todo) {
+        const newItemLi = document.createElement("li");
+        newItemLi.classList.add("item");
+
+        const newItemLiP = document.createElement("p")
+        newItemLiP.innerText = todo;
+
+        const newButtonDel = document.createElement("button");
+        newButtonDel.classList.add("delete");
+        newButtonDel.innerHTML = (`<i class="fa fa-trash" aria-hidden="true"></i>`);
+
+        const newButtonChecked = document.createElement("button");
+        newButtonChecked.classList.add("checked");
+        newButtonChecked.innerHTML = (`<i class="fa fa-check" aria-hidden="true"></i>`);
+
+        newItemLi.appendChild(newItemLiP);
+        newItemLi.appendChild(newButtonDel);
+        newItemLi.appendChild(newButtonChecked);
+
+        todoListUl.appendChild(newItemLi);
+        newItemLi.addEventListener("click", deletecheck);//eventListener
+
+    });
+}
+function removeLocalTodos(todo) {
+    let all;
+    if (localStorage.getItem("all") === null) {
+        all = [];
+    } else {
+        all = JSON.parse(localStorage.getItem("all"));
+    }
+    console.log();
+    const allIndex = todo.children[0].innerText;
+    all.splice(all.indexOf(allIndex), 1);
+    localStorage.setItem("all", JSON.stringify(all));
+}
 
 
 
 
-
-
-
-    //     const newDelete = document.createElement("button");
-    //     newDelete.classList.add("delete");
-    //     newDelete.innerHTML = (`<i class="fa fa-trash" aria-hidden="true"></i>`);
-    //     newItem.appendChild(newDelete);
-
-    //     const newChecked = document.createElement("button");
-    //     newChecked.classList.add("checked");
-    //     newChecked.innerHTML = (`<i class="fa fa-check" aria-hidden="true"></i>`);
-    //     newItem.appendChild(newChecked);
-    //     todoList.appendChild(newTodo);
-    //     textInput.value = "";
-    //     
-    // 

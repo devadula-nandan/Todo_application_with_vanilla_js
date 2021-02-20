@@ -131,6 +131,10 @@ select{
     display: inline-flex;
     margin-top: 7px;
 }
+.clearls{
+    border-radius: 2px;
+    margin-left: 4px;
+}
 @media (min-width: 768px) {
     .delete,.checked{
         width: 7%;

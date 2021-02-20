@@ -139,9 +139,8 @@ function removeLocalTodos(todo) {
     if (localStorage.getItem("all") === null) {
         all = [];
     } else {
-        all = JSON.parse(localStorage.getItem("all"));
+        all = JSON.parse(localStorage.getItem("all")); //can remove if else statement and only keep this line
     }
-    console.log();
     const allIndex = todo.children[0].innerText;
     all.splice(all.indexOf(allIndex), 1);
     localStorage.setItem("all", JSON.stringify(all));

@@ -45,6 +45,11 @@
     padding: 8px;
     padding: 0px 12px;
     border-radius: 0px 2px 2px 0px;
+    background-color: rgb(228, 228, 228);
+}
+.inadd button:hover{
+   background-color: rgb(26, 26, 26);
+   color: rgb(255, 255, 255);
 }
 input:focus,button:focus{
     outline: none;
@@ -120,6 +125,10 @@ select{
 .filter-todo{
     background-color: #f3f3f3;
 }
+.filter-todo:focus{
+    background-color: rgb(26, 26, 26);
+    color: white;
+}
 .box{
     display: inline-flex;
 }
@@ -127,14 +136,14 @@ select{
    height: auto;
    border-radius: 2px;
 }
+.cp:hover{
+    background-color: rgb(116, 116, 116);
+ }
 .filthe{
     display: inline-flex;
     margin-top: 7px;
 }
-.clearls{
-    border-radius: 2px;
-    margin-left: 4px;
-}
+
 @media (min-width: 768px) {
     .delete,.checked{
         width: 7%;
@@ -146,5 +155,33 @@ select{
 @media (max-width: 425px) {
     .box{
         display: block;
+    }
+    .inadd button:hover{
+        background-color: rgb(228, 228, 228);
+        color: rgb(0, 0, 0);
+     }
+     .delete:hover{
+        background-color: rgb(255, 64, 38);
+        color: #ffffff;
+        width: 14%;
+    }
+    .checked:hover{
+        background-color: rgb(18, 255, 57);
+        color: #ffffff;
+        width: 14%;
+    }
+    .inadd button:active{
+        background-color: rgb(26, 26, 26);
+        color: rgb(255, 255, 255);
+     }
+     .delete:active{
+        background-color: #ffffff;
+        color:  rgb(255, 64, 38);
+        width: 20%;
+    }
+    .checked:active{
+        background-color: #ffffff;
+        color:  rgb(18, 255, 57);
+        width: 20%;
     }
 }

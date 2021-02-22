@@ -17,13 +17,13 @@ document.addEventListener("DOMContentLoaded", setLsColor);
 function addItem(event) {
     event.preventDefault();
 
-    if (textInput.value != "") {
+    if (textInput.value != "" && textInput.value.trim() !== "") {
 
         const newItemLi = document.createElement("li");
         newItemLi.classList.add("item");
 
-        const newItemLiP = document.createElement("p")
-        newItemLiP.innerText = textInput.value;
+        const newItemLiP = document.createElement("pre")
+        newItemLiP.innerText = textInput.value;//.trim()
 
         const newButtonDel = document.createElement("button");
         newButtonDel.classList.add("delete");
@@ -43,21 +43,35 @@ function addItem(event) {
         textInput.value = "";
 
         newItemLi.addEventListener("click", deletecheck);//eventListener
+    } else {
+        textInput.value = "";
     }
 }
 function deletecheck(e) {
     const clickedTarget = e.target;
     if (clickedTarget.classList[0] === "delete") {
-        const clickedTargetParent = clickedTarget.parentElement;
-        clickedTargetParent.classList.add("fade");
-        removeLocalTodos(clickedTargetParent);
-        clickedTargetParent.addEventListener("transitionend", function () {//eventListener
-            clickedTargetParent.remove();
+        clickedTarget.parentElement.classList.add("fade");
+        removeLocalTodos(clickedTarget.parentElement);
+        clickedTarget.parentElement.addEventListener("transitionend", function () {//eventListener
+            clickedTarget.parentElement.remove();
         })
     }
     if (clickedTarget.classList[0] === "checked") {
-        const clickedTargetParent = clickedTarget.parentElement;
-        clickedTargetParent.classList.toggle("completed");
+        clickedTarget.parentElement.classList.toggle("completed");
+        //add to ls
+        console.log(clickedTarget.parentElement.childNodes[0].innerText);
+        let comp;
+        if (localStorage.getItem("completed") === null) {
+            comp = [];
+        } else {
+            comp = JSON.parse(localStorage.getItem("completed"));
+        }
+        if (comp.includes(clickedTarget.parentElement.childNodes[0].innerText)) {
+            comp.splice(comp.indexOf(clickedTarget.parentElement.childNodes[0].innerText), 1);
+        } else {
+            comp.push(clickedTarget.parentElement.childNodes[0].innerText);
+        }
+        localStorage.setItem("completed", JSON.stringify(comp));
     }
 }
 function filterTodo(e) {
@@ -103,13 +117,14 @@ function pickColor() {// apply to bg and store in ls
 
 function setLsColor() {
     const boDy = document.querySelector(".body");
+    let newColorPickerValue;
     if (localStorage.getItem("cpVal") === null) {
-        let newColorPickerValue;
-        newColorPickerValue = [];
+
+        newColorPickerValue = ["#000000"];
     } else {
         newColorPickerValue = JSON.parse(localStorage.getItem("cpVal"));
     }
-    colorPicker.value = newColorPickerValue
+    colorPicker.value = newColorPickerValue;
     boDy.style.backgroundColor = newColorPickerValue;
 }
 
@@ -134,7 +149,9 @@ function getTodos() {
         const newItemLi = document.createElement("li");
         newItemLi.classList.add("item");
 
-        const newItemLiP = document.createElement("p")
+        retrieveCheckedItems(newItemLi, todo);
+
+        const newItemLiP = document.createElement("pre")
         newItemLiP.innerText = todo;
 
         const newButtonDel = document.createElement("button");
@@ -154,6 +171,18 @@ function getTodos() {
 
     });
 }
+function retrieveCheckedItems(newitemli, tod) {
+    let comp;
+    if (localStorage.getItem("completed") === null) {
+        comp = [];
+    } else {
+        comp = JSON.parse(localStorage.getItem("completed"));
+    }
+    if (comp.includes(tod)) {
+        newitemli.classList.add("completed");
+    }
+
+}
 function removeLocalTodos(todo) {
     let all;
     if (localStorage.getItem("all") === null) {
@@ -161,9 +190,20 @@ function removeLocalTodos(todo) {
     } else {
         all = JSON.parse(localStorage.getItem("all")); //can remove if else statement and only keep this line
     }
-    const allIndex = todo.children[0].innerText;
-    all.splice(all.indexOf(allIndex), 1);
+    todo.children[0].innerText;
+    all.splice(all.indexOf(todo.children[0].innerText), 1);
     localStorage.setItem("all", JSON.stringify(all));
+
+    let comp;
+    if (localStorage.getItem("completed") === null) {
+        comp = [];
+    } else {
+        comp = JSON.parse(localStorage.getItem("completed"));
+    }
+
+    comp.splice(comp.indexOf(todo.children[0].innerText), 1);
+
+    localStorage.setItem("completed", JSON.stringify(comp));
 }
 
 

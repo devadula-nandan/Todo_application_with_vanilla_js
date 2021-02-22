@@ -156,32 +156,4 @@ select{
     .box{
         display: block;
     }
-    .inadd button:hover{
-        background-color: rgb(228, 228, 228);
-        color: rgb(0, 0, 0);
-     }
-     .delete:hover{
-        background-color: rgb(255, 64, 38);
-        color: #ffffff;
-        width: 14%;
-    }
-    .checked:hover{
-        background-color: rgb(18, 255, 57);
-        color: #ffffff;
-        width: 14%;
-    }
-    .inadd button:active{
-        background-color: rgb(26, 26, 26);
-        color: rgb(255, 255, 255);
-     }
-     .delete:active{
-        background-color: #ffffff;
-        color:  rgb(255, 64, 38);
-        width: 20%;
-    }
-    .checked:active{
-        background-color: #ffffff;
-        color:  rgb(18, 255, 57);
-        width: 20%;
-    }
 }

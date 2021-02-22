@@ -11,7 +11,7 @@ addButton.addEventListener("click", addItem);//eventListener
 filterOption.addEventListener("change", filterTodo);//eventListener
 colorPicker.addEventListener("change", pickColor);//eventListener
 document.addEventListener("DOMContentLoaded", getTodos);//eventListener
-
+document.addEventListener("DOMContentLoaded", setLsColor);
 //functions
 
 function addItem(event) {
@@ -51,8 +51,8 @@ function deletecheck(e) {
         const clickedTargetParent = clickedTarget.parentElement;
         clickedTargetParent.classList.add("fade");
         removeLocalTodos(clickedTargetParent);
-        clickedTargetParent.addEventListener("transitionend", function () {
-            clickedTargetParent.remove();//eventListener
+        clickedTargetParent.addEventListener("transitionend", function () {//eventListener
+            clickedTargetParent.remove();
         })
     }
     if (clickedTarget.classList[0] === "checked") {
@@ -86,12 +86,32 @@ function filterTodo(e) {
     })
 }
 
-function pickColor() {
+function pickColor() {// apply to bg and store in ls
     const boDy = document.querySelector(".body");
-    console.log(boDy);
     boDy.style.backgroundColor = colorPicker.value;
+
+    if (localStorage.getItem("cpVal") === null) {
+        let newColorPickerValue;
+        newColorPickerValue = [];
+    } else {
+        newColorPickerValue = JSON.parse(localStorage.getItem("cpVal"));
+    }
+    newColorPickerValue = colorPicker.value;
+
+    localStorage.setItem("cpVal", JSON.stringify(newColorPickerValue));
 }
 
+function setLsColor() {
+    const boDy = document.querySelector(".body");
+    if (localStorage.getItem("cpVal") === null) {
+        let newColorPickerValue;
+        newColorPickerValue = [];
+    } else {
+        newColorPickerValue = JSON.parse(localStorage.getItem("cpVal"));
+    }
+    colorPicker.value = newColorPickerValue
+    boDy.style.backgroundColor = newColorPickerValue;
+}
 
 function saveLocalTodos(todo) {
     let all;

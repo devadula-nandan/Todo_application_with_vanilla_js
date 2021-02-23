@@ -48,7 +48,7 @@
     background-color: rgb(228, 228, 228);
 }
 .inadd button:hover{
-   background-color: rgb(26, 26, 26);
+   background-color: rgb(116, 116, 116);
    color: rgb(255, 255, 255);
 }
 input:focus,button:focus{
@@ -125,8 +125,8 @@ select{
 .filter-todo{
     background-color: #f3f3f3;
 }
-.filter-todo:hover{
-    background-color: rgb(26, 26, 26);
+.filter-todo:focus-visible{
+    background-color: rgb(116, 116, 116);
     color: white;
 }
 .box{

@@ -59,7 +59,6 @@ function deletecheck(e) {
     if (clickedTarget.classList[0] === "checked") {
         clickedTarget.parentElement.classList.toggle("completed");
         //add to ls
-        console.log(clickedTarget.parentElement.childNodes[0].innerText);
         let comp;
         if (localStorage.getItem("completed") === null) {
             comp = [];
@@ -76,7 +75,6 @@ function deletecheck(e) {
 }
 function filterTodo(e) {
     const todos = todoListUl.childNodes;
-    console.log(todos);
     todos.forEach(function (item) {
         switch (e.target.value) {
             case "all":

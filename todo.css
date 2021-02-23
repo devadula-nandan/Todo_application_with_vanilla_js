@@ -125,7 +125,7 @@ select{
 .filter-todo{
     background-color: #f3f3f3;
 }
-.filter-todo:focus-visible{
+.filter-todo:hover{
     background-color: rgb(116, 116, 116);
     color: white;
 }

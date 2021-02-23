@@ -125,7 +125,7 @@ select{
 .filter-todo{
     background-color: #f3f3f3;
 }
-.filter-todo:focus{
+.filter-todo:hover{
     background-color: rgb(26, 26, 26);
     color: white;
 }
@@ -156,6 +156,7 @@ select{
     .box{
         display: block;
     }
+<<<<<<< HEAD
     .inadd button:hover{
         background-color: rgb(228, 228, 228);
         color: rgb(0, 0, 0);
@@ -186,3 +187,6 @@ select{
     }
     
 }
+=======
+}
+>>>>>>> cf3a77aebda8f71436702afbd36a754621b6daa6

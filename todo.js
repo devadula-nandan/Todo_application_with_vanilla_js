@@ -186,7 +186,7 @@ function retrieveCheckedItems(newitemli, tod) {
     }
 
 }
-function removeLocalTodos(todo) {
+function removeLocalTodos(todo) { //from all and comp
     let all;
     if (localStorage.getItem("all") === null) {
         all = [];
@@ -203,10 +203,17 @@ function removeLocalTodos(todo) {
     } else {
         comp = JSON.parse(localStorage.getItem("completed"));
     }
+    console.log(todo.children[0].innerText);
+    console.log(todo);
+    console.log(comp);
+    if (comp.includes(todo.children[0].innerText)) {
+        console.log(todo.children[0].innerText);
+        comp.splice(comp.indexOf(todo.children[0].innerText), 1);
 
-    comp.splice(comp.indexOf(todo.children[0].innerText), 1);
+        localStorage.setItem("completed", JSON.stringify(comp));
+    }
 
-    localStorage.setItem("completed", JSON.stringify(comp));
+
 }
 
 function hexToHslAndCheckSL(H) {

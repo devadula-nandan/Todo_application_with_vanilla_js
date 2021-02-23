@@ -11,13 +11,21 @@ addButton.addEventListener("click", addItem);//eventListener
 filterOption.addEventListener("change", filterTodo);//eventListener
 colorPicker.addEventListener("change", pickColor);//eventListener
 document.addEventListener("DOMContentLoaded", getTodos);//eventListener
-document.addEventListener("DOMContentLoaded", setLsColor);
+document.addEventListener("DOMContentLoaded", setLsColor);//eventListener
 //functions
 
 function addItem(event) {
     event.preventDefault();
-
-    if (textInput.value != "" && textInput.value.trim() !== "") {
+    if (localStorage.getItem("all") === null) {
+        all = [];
+    } else {
+        all = JSON.parse(localStorage.getItem("all"));
+    }
+    if (all.includes(textInput.value)) {
+        alert("you already have that item");
+        textInput.value = "";
+    }
+    else if (textInput.value != "" && textInput.value.trim() !== "") {
 
         const newItemLi = document.createElement("li");
         newItemLi.classList.add("item");
@@ -203,13 +211,8 @@ function removeLocalTodos(todo) { //from all and comp
     } else {
         comp = JSON.parse(localStorage.getItem("completed"));
     }
-    console.log(todo.children[0].innerText);
-    console.log(todo);
-    console.log(comp);
     if (comp.includes(todo.children[0].innerText)) {
-        console.log(todo.children[0].innerText);
         comp.splice(comp.indexOf(todo.children[0].innerText), 1);
-
         localStorage.setItem("completed", JSON.stringify(comp));
     }
 
